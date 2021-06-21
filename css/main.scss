@@ -85,7 +85,14 @@ $transition: all .2s ease-in;
 
 $color-base: #1C1C24;
 $color-white: #fafafa;
-$color-primary: #C0652C;
+
+$color-primary-light: #4791db;
+$color-primary-main: #1976d2;
+$color-primary-dark: #115293;
+
+
+$color-secondary: #4791db;
+
 $light-grey: #f8f8f8;
 $dark-grey: #1E2020;
 
@@ -105,7 +112,7 @@ $dark-grey: #1E2020;
 body {
   @include fira-sans;
 
-  // background-color: $color-primary;
+  // background-color: $color-primary-main;
   position: relative;
   color: $color-base;
   letter-spacing: 0.01em;
@@ -135,7 +142,7 @@ body {
   max-width: 1110px;
   margin: 0 auto;
   //padding: 0 $base*3;
-  // border: 1px solid $color-primary;
+  // border: 1px solid $color-primary-main;
   height: inherit;
   // overflow: hidden;
 
@@ -186,22 +193,22 @@ body {
 
   &_primary {
     color: $color-white;
-    background-color: $color-primary;
-    border: 2px solid $color-primary;
+    background-color: $color-primary-main;
+    border: 2px solid $color-primary-main;
 
     &:hover {
-      background-color: darken($color-primary, 5%);
+      background-color: darken($color-primary-main, 5%);
     }
 
     &-inverted {
-      color: $color-primary;
+      color: $color-primary-main;
       background-color: $color-white;
-      border: 2px solid $color-primary;
+      border: 2px solid $color-primary-main;
 
       &:hover {
         color: $color-white;
-        background-color: lighten($color-primary, 5%);
-        border: 2px solid $color-primary;
+        background-color: lighten($color-primary-main, 5%);
+        border: 2px solid $color-primary-main;
       }
     }
 
@@ -359,7 +366,6 @@ h6 {
 
 a {
   text-decoration: none;
-  color: $color-base;
 }
 
 p {
@@ -393,12 +399,25 @@ img {
 
 
 .section-header {
-  background: linear-gradient(180deg, #3D3D3D 0%, #666666 100%);
+  background: $color-primary-main;
 
   .main-navigation {
     display: flex;
     align-items: center;
     // padding: 20px;
+
+
+    .logo {
+
+      &__link {
+        font-weight: bold;
+        letter-spacing: $base*.5;
+        font-size: 20px;
+        color: $color-white;
+        border: $base solid $color-white;
+        padding: $base $base*3;
+      }
+    }
 
 
     .menu {
@@ -409,12 +428,23 @@ img {
 
         display: flex;
 
+        &__link {
+          color: $color-white;
+          opacity: .75;
+
+          &_active {
+            opacity: 1;
+          }
+        }
+
         &__item {
 
           &:not(:last-child) {
             margin-right: 15px;
-          }
+          }          
         }
+
+       
 
       }
     }
