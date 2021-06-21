@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap&subset=cyrillic-ext,latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <title>IBS 9</title>
+</head>
+<body>
+  <header class="section-outer section-header">
+    <div class="section-inner">
+      <div class="main-navigation">
+        <span class="logo">
+          <a href="#" class="logo__link" aria-label="Logo">
+            <span>IBS - 9</span>
+          </a>
+        </span>
+        <nav class="menu">
+          <ul class="menu-list">
+            <li class="menu-list__item">
+              <a href="#" class="menu-list__item-link">
+                Обзор сервиса
+              </a>
+            </li>
+            <li class="menu-list__item">
+              <a href="#" class="menu-list__item-link menu-list__item-link_active">
+                Сервис
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="section-outer">
+      <div class="section-inner">
+
+        <form action="" method="GET" class="searchForm">
+
+          <h1 class="searchForm__title">Поиск вакансий</h1>
+
+          <div class="searchForm__item">
+            <label for="keywords">Ключевые слова:</label>
+            <input type="text" name="keywords" id="keywords" />
+          </div>
+          <div class="searchForm__item">
+            <label for="region">Регион/город:</label>
+            <select multiple name="city" id="region">
+              <option value="Москва">Москва</option>
+              <option value="Санкт-Петербург">Санкт-Петербург</option>
+              <option value="Уфа">Уфа</option>
+              <option value="Пермь">Пермь</option>
+              <option value="Ульяновск">Ульяновск</option>
+              <option value="Киев">Киев</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Показать</button>
+
+
+      </form>
+
+      </div>
+    </section>
+    <section class="section-outer section-reports">
+      <div class="section-inner">
+
+        <img src="img/dasboard-1.png" alt="">
+        
+        <img src="img/dasboard-1.png" alt="">
+        
+      </div>
+    </section>
+  </main>
+  
+</body>
+</html>

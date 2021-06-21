@@ -1,0 +1,457 @@
+@font-face {
+  font-family: 'Fira Sans';           /* название одно */
+  src: url('../fonts/FiraSans/FiraSans-Light.ttf');     /* разные файлы */
+  font-weight: 300;                  /* разная плотность */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Sans';           /* название одно */
+  src: url('../fonts/FiraSans/FiraSans-Regular.ttf');     /* разные файлы */
+  font-weight: 400;                  /* разная плотность */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Sans';           /* название одно */
+  src: url('../fonts/FiraSans/FiraSans-Medium.ttf');     /* разные файлы */
+  font-weight: 500;                  /* разная плотность */
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+// === MIXIN ===
+@mixin fira-sans {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+@mixin list-null {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+// === / MIXIN ===
+
+// === FUNCTIONS ===
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function rem($num) {
+  @return (strip-unit($num) / 16) * 1rem;
+}
+// === / FUNCTIONS ===
+
+// === VARIABLES ===
+
+
+$breakpoint-xxxs-min: 376px;
+$breakpoint-xxs-max: $breakpoint-xxxs-min - 1px;
+$breakpoint-sm-min: 576px;
+$breakpoint-xs-max: $breakpoint-sm-min - 1px;
+$breakpoint-md-min: 768px;
+$breakpoint-sm-max: $breakpoint-md-min - 1px;
+$breakpoint-lg-min: 992px;
+$breakpoint-md-max: $breakpoint-lg-min - 1px;
+$breakpoint-xl-min: 1200px;
+$breakpoint-lg-max: $breakpoint-xl-min - 1px;
+$breakpoint-xxl-min: 1400px;
+$breakpoint-xl-max: $breakpoint-xxl-min - 1px;
+
+$base: rem(4px);
+
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+
+$fs-xxs: rem(16px);
+$fs-xs: rem(20px);
+$fs-s: rem(24px);
+$fs-m: rem(36px);
+$fs-l: rem(40px);
+$fs-xl: rem(48px);
+$fs-xxl: rem(140px);
+
+$padding-vertical-xs: $base * 12;
+$padding-vertical-sm: $base * 18;
+$padding-vertical: $base * 30;
+
+$transition: all .2s ease-in;
+
+$color-base: #1C1C24;
+$color-white: #fafafa;
+$color-primary: #C0652C;
+$light-grey: #f8f8f8;
+$dark-grey: #1E2020;
+
+// === / VARIABLES ===
+
+// === COMMON ===
+// html {
+//   @media (max-width: $breakpoint-md-max) {
+//     font-size: 14px;
+//   }
+
+//   @media (max-width: $breakpoint-sm-max) {
+//     font-size: 10px;
+//   }
+// }
+
+body {
+  @include fira-sans;
+
+  // background-color: $color-primary;
+  position: relative;
+  color: $color-base;
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding: 0;
+}
+
+.section-outer {
+  position: relative;
+  
+  // border-bottom: 1px solid grey;
+
+  &.section-header {
+    padding: $base*5 0;
+  }
+
+  &:not(.section-header) {
+    padding: $base*10 0;
+  }
+
+  &_dark-bg {
+    background-color: $dark-grey;
+    color: $color-white;
+  }
+}
+.section-inner {
+  max-width: 1110px;
+  margin: 0 auto;
+  //padding: 0 $base*3;
+  // border: 1px solid $color-primary;
+  height: inherit;
+  // overflow: hidden;
+
+  // @media (max-width: $breakpoint-lg-max) {
+  //   max-width: calc(100% - 80px);
+  // }
+
+  // @media (max-width: $breakpoint-md-max) {
+  //   max-width: calc(100% - 60px);
+  // }
+
+  // @media (max-width: $breakpoint-sm-max) {
+  //   max-width: calc(100% - 40px);
+  // }
+
+  // @media (max-width: $breakpoint-xs-max) {
+  //   max-width: calc(100% - 40px);
+  // }
+
+  &_wide {
+    // max-width: 1800px;
+    max-width: 100%;
+
+    // @media (max-width: $breakpoint-sm-max) {
+    //   max-width: 100%;
+    // }
+
+  }
+}
+
+.btn {
+  @include fira-sans;
+
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  padding: $base*3 $base*6;
+  margin: 0;
+  font-weight: $fw-medium;
+  font-size: $fs-xxs;
+  background: none;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: $transition;
+  cursor: pointer;
+  max-width: fit-content;
+
+  &_primary {
+    color: $color-white;
+    background-color: $color-primary;
+    border: 2px solid $color-primary;
+
+    &:hover {
+      background-color: darken($color-primary, 5%);
+    }
+
+    &-inverted {
+      color: $color-primary;
+      background-color: $color-white;
+      border: 2px solid $color-primary;
+
+      &:hover {
+        color: $color-white;
+        background-color: lighten($color-primary, 5%);
+        border: 2px solid $color-primary;
+      }
+    }
+
+  }
+
+  &_primary-dark {
+    color: $color-white;
+    background-color: $dark-grey;
+
+    &:hover {
+      background-color: darken($dark-grey, 5%);
+    }
+  }
+
+  &_danger {
+    color: grey;
+    background-color: grey;
+
+    &:hover {
+      background-color: darken(grey, 5%);
+    }
+  }
+
+  &_secondary {
+    color: grey;
+    background-color: grey;
+
+    &:hover {
+      background-color: darken(grey, 5%);
+    }
+  }
+
+}
+
+
+/*
+.input {
+  border: 1px solid transparent;
+  border-radius: $base/2;
+  font-size: $fs-xs;
+
+  &_size-lg {
+    padding: $base*5 $base*6;
+    border-radius: $base;
+
+    @media (max-width: $breakpoint-xs-max) {
+      padding: 0 $base*5;
+    }
+  }
+}
+
+.textarea {
+  font-size: $fs-xs;
+  resize: none;
+}
+
+
+
+*/
+
+
+// МОЯ КОНФИГУРАЦИЯ
+.ta-c {
+  text-align: center;
+}
+// h1 {
+//   font-size: $fs-xxl;
+//   line-height: 0.7*$fs-xxl;
+
+//   @media (max-width: $breakpoint-lg-max) {
+//     font-size: $fs-xxl*0.8;
+//     line-height: $fs-xxl*0.8*0.7;
+//   }
+
+//   @media (max-width: $breakpoint-md-max) {
+//     font-size: $fs-xxl*0.675;
+//     line-height: $fs-xxl*0.675*0.675;
+//   }
+
+//   @media (max-width: $breakpoint-sm-max) {
+//     font-size: $fs-xxl*.5;
+//     line-height: 0.5*$fs-xxl*.5;
+//   }
+
+//   @media (max-width: $breakpoint-xs-max) {
+//     font-size: $fs-xxl*.3;
+//     line-height: $fs-xxl*.3*.6;
+//   }
+
+//   @media (max-width: $breakpoint-xxs-max) {
+//     font-size: $fs-xxl*.3;
+//     line-height: $fs-xxl*.3*.6;
+//   }
+// }
+
+// h2 {
+//   font-size: $fs-m;
+//   line-height: $fs-m*1.4;
+//   font-weight: $fw-medium;
+
+//   @media (max-width: $breakpoint-xs-max) {
+//     font-size: $fs-m*.85;
+//     line-height: $fs-m*.9;
+//   }
+
+//   @media (max-width: $breakpoint-xxs-max) {
+//     font-size: $fs-m*.85;
+//     line-height: $fs-m*.85;
+//   }
+// }
+
+// h3 {
+//   font-size: $fs-l;
+//   line-height: $fs-l*1.4;
+// }
+
+// h4 {
+//   font-size: $fs-m;
+//   line-height: $fs-m*1.4;
+// }
+
+// h5 {
+//   font-size: $fs-s;
+//   line-height: $fs-s*1.4;
+//   font-weight: $fw-regular;
+
+//   @media (max-width: $breakpoint-xs-max) {
+//     font-size: $fs-s*.85;
+//     line-height: $fs-s*.85;
+//   }
+
+//   @media (max-width: $breakpoint-xxs-max) {
+//     font-size: $fs-s*.85;
+//     line-height: $fs-s*.85;
+//   }
+// }
+
+// h6 {
+//   font-size: $fs-xs;
+//   line-height: $fs-xs*1.4;
+//   font-weight: $fw-medium;
+// }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include fira-sans;
+
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $color-base;
+}
+
+p {
+  font-weight: $fw-light;
+  font-size: $fs-xs;
+  line-height: $fs-xs*1.25;
+  // margin-top: 0;
+
+  @media (max-width: $breakpoint-xxs-max) {
+    font-size: $fs-xs*.85;
+    line-height: $fs-xs*1.25*.85;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+
+.section-header {
+  background: linear-gradient(180deg, #3D3D3D 0%, #666666 100%);
+
+  .main-navigation {
+    display: flex;
+    align-items: center;
+    // padding: 20px;
+
+
+    .menu {
+      margin-left: 30px;
+      
+      .menu-list {
+        @include list-null;
+
+        display: flex;
+
+        &__item {
+
+          &:not(:last-child) {
+            margin-right: 15px;
+          }
+        }
+
+      }
+    }
+  }
+
+
+}
+
+
+.searchForm {
+
+  &__title {
+    margin-bottom: $base*5;
+  }
+
+
+  &__item {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: $base*5;
+    }
+
+    label {
+      width: 140px;
+      margin-right: 20px;
+    }
+
+    input {
+      width: 300px;
+    }
+
+    select {
+      width: 307px;
+    }
+
+
+
+  }
+}

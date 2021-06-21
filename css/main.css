@@ -1,0 +1,192 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Fira Sans';
+  /* название одно */
+  src: url("../fonts/FiraSans/FiraSans-Light.ttf");
+  /* разные файлы */
+  font-weight: 300;
+  /* разная плотность */
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: 'Fira Sans';
+  /* название одно */
+  src: url("../fonts/FiraSans/FiraSans-Regular.ttf");
+  /* разные файлы */
+  font-weight: 400;
+  /* разная плотность */
+  font-style: normal;
+  font-display: swap; }
+@font-face {
+  font-family: 'Fira Sans';
+  /* название одно */
+  src: url("../fonts/FiraSans/FiraSans-Medium.ttf");
+  /* разные файлы */
+  font-weight: 500;
+  /* разная плотность */
+  font-style: normal;
+  font-display: swap; }
+body {
+  font-family: 'Fira Sans', sans-serif;
+  position: relative;
+  color: #1C1C24;
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding: 0; }
+
+.section-outer {
+  position: relative; }
+  .section-outer.section-header {
+    padding: 1.25rem 0; }
+  .section-outer:not(.section-header) {
+    padding: 2.5rem 0; }
+  .section-outer_dark-bg {
+    background-color: #1E2020;
+    color: #fafafa; }
+
+.section-inner {
+  max-width: 1110px;
+  margin: 0 auto;
+  height: inherit; }
+  .section-inner_wide {
+    max-width: 100%; }
+
+.btn {
+  font-family: 'Fira Sans', sans-serif;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  background: none;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  max-width: fit-content; }
+  .btn_primary {
+    color: #fafafa;
+    background-color: #C0652C;
+    border: 2px solid #C0652C; }
+    .btn_primary:hover {
+      background-color: #ab5a27; }
+    .btn_primary-inverted {
+      color: #C0652C;
+      background-color: #fafafa;
+      border: 2px solid #C0652C; }
+      .btn_primary-inverted:hover {
+        color: #fafafa;
+        background-color: #d17135;
+        border: 2px solid #C0652C; }
+  .btn_primary-dark {
+    color: #fafafa;
+    background-color: #1E2020; }
+    .btn_primary-dark:hover {
+      background-color: #121313; }
+  .btn_danger {
+    color: grey;
+    background-color: grey; }
+    .btn_danger:hover {
+      background-color: #737373; }
+  .btn_secondary {
+    color: grey;
+    background-color: grey; }
+    .btn_secondary:hover {
+      background-color: #737373; }
+
+/*
+.input {
+  border: 1px solid transparent;
+  border-radius: $base/2;
+  font-size: $fs-xs;
+
+  &_size-lg {
+    padding: $base*5 $base*6;
+    border-radius: $base;
+
+    @media (max-width: $breakpoint-xs-max) {
+      padding: 0 $base*5;
+    }
+  }
+}
+
+.textarea {
+  font-size: $fs-xs;
+  resize: none;
+}
+
+
+
+*/
+.ta-c {
+  text-align: center; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Fira Sans', sans-serif;
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none;
+  color: #1C1C24; }
+
+p {
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.5625rem; }
+  @media (max-width: 375px) {
+    p {
+      font-size: 1.0625rem;
+      line-height: 1.328125rem; } }
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0); }
+
+.section-header {
+  background: linear-gradient(180deg, #3D3D3D 0%, #666666 100%); }
+  .section-header .main-navigation {
+    display: flex;
+    align-items: center; }
+    .section-header .main-navigation .menu {
+      margin-left: 30px; }
+      .section-header .main-navigation .menu .menu-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex; }
+        .section-header .main-navigation .menu .menu-list__item:not(:last-child) {
+          margin-right: 15px; }
+
+.searchForm__title {
+  margin-bottom: 1.25rem; }
+.searchForm__item {
+  display: flex; }
+  .searchForm__item:not(:last-child) {
+    margin-bottom: 1.25rem; }
+  .searchForm__item label {
+    width: 140px;
+    margin-right: 20px; }
+  .searchForm__item input {
+    width: 300px; }
+  .searchForm__item select {
+    width: 307px; }
